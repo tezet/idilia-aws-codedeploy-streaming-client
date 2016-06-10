@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+hooks:
+  AfterInstall:
+    - location: scripts/set_permissions.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_webserver.sh
+      timeout: 300
+      runas: janus
+  ApplicationStop:
+    - location: scripts/stop_webserver.sh
+      timeout: 300
+      runas: janus
+  ValidateService:
+    - location: scripts/validate_webserver.sh
+      timeout: 2000
+      runas: janus
