@@ -8,12 +8,12 @@ hooks:
   ApplicationStart:
     - location: scripts/start_webserver.sh
       timeout: 300
-      runas: janus
+      runas: httpd
   ApplicationStop:
     - location: scripts/stop_webserver.sh
       timeout: 300
-      runas: janus
+      runas: httpd
   ValidateService:
     - location: scripts/validate_webserver.sh
       timeout: 2000
-      runas: janus
+      runas: httpd
